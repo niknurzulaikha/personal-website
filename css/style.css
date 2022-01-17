@@ -1,0 +1,44 @@
+body
+{
+    background-color: #FDD7E4;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5;
+    
+}
+
+p
+{
+    text-indent: 50px;
+}
+    
+    
+
+a:link
+    {
+        color: maroon;
+        background-color: whitesmoke;
+        text-decoration: none;
+        padding: 15px;
+
+    }
+a:visited
+{
+    color: purple;
+    background-color: pink;
+    text-decoration: none;
+
+}
+a:hover
+    {
+        color: tan;
+        background-color: purple;
+        text-decoration: underline;
+    }
+:active
+    {
+        color: saddlebrown;
+        background-color: wheat;
+        text-decoration: underline;
+    }
+

@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>Home page</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <style>
+        img
+        {
+            width: 1400; 
+        
+        
+        }
+    </style>
+<body>
+    <div style="text-align: center;">
+    <h1 style="color: #7D0552;" >Nikzulaikha's Website</h1>
+
+
+    <a href="index.html"target="_blank">Homepage</a>
+    <a href="biodata.html"target="_blank">Biodata</a>
+    <a href="experience.html"target="_blank">Experience</a>
+    <a href="education.html"target="_blank">Education</a>
+    <a href="family.html"target="_blank">Family</a>
+    <a href="gallery.html"target="_blank">Gallery</a>
+    <a href="contact.html"target="_blank">Contact Me</a>
+    <a href="game.html"target="_blank">Game</a>
+    </div>
+    <br>
+    <br>
+    
+<img src="image/welcometomywebsit.PNG" >
+<center>
+    <canvas id="canvas" width="400" height="400"
+    style="background-color: none";>
+    </canvas>
+    
+    <script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    var radius = canvas.height / 2;
+    ctx.translate(radius, radius);
+    radius = radius * 0.90
+    setInterval(drawClock, 1000);
+    
+    function drawClock() {
+      drawFace(ctx, radius);
+      drawNumbers(ctx, radius);
+      drawTime(ctx, radius);
+    }
+    
+    function drawFace(ctx, radius) {
+      var grad;
+      ctx.beginPath();
+      ctx.arc(0, 0, radius, 0, 2*Math.PI);
+      ctx.fillStyle = 'white';
+      ctx.fill();
+      grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+      grad.addColorStop(0, '#333');
+      grad.addColorStop(0.5, 'pink');
+      grad.addColorStop(1, '#7D0552');
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = radius*0.1;
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
+      ctx.fillStyle = '#333';
+      ctx.fill();
+    }
+    
+    function drawNumbers(ctx, radius) {
+      var ang;
+      var num;
+      ctx.font = radius*0.15 + "px arial";
+      ctx.textBaseline="middle";
+      ctx.textAlign="center";
+      for(num = 1; num < 13; num++){
+        ang = num * Math.PI / 6;
+        ctx.rotate(ang);
+        ctx.translate(0, -radius*0.85);
+        ctx.rotate(-ang);
+        ctx.fillText(num.toString(), 0, 0);
+        ctx.rotate(ang);
+        ctx.translate(0, radius*0.85);
+        ctx.rotate(-ang);
+      }
+    }
+    
+    function drawTime(ctx, radius){
+        var now = new Date();
+        var hour = now.getHours();
+        var minute = now.getMinutes();
+        var second = now.getSeconds();
+        //hour
+        hour=hour%12;
+        hour=(hour*Math.PI/6)+
+        (minute*Math.PI/(6*60))+
+        (second*Math.PI/(360*60));
+        drawHand(ctx, hour, radius*0.5, radius*0.07);
+        //minute
+        minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+        drawHand(ctx, minute, radius*0.8, radius*0.07);
+        // second
+        second=(second*Math.PI/30);
+        drawHand(ctx, second, radius*0.9, radius*0.02);
+    }
+    
+    function drawHand(ctx, pos, length, width) {
+        ctx.beginPath();
+        ctx.lineWidth = width;
+        ctx.lineCap = "round";
+        ctx.moveTo(0,0);
+        ctx.rotate(pos);
+        ctx.lineTo(0, -length);
+        ctx.stroke();
+        ctx.rotate(-pos);
+    }
+    </script></center>
+
+<p style="text-align: center;"><i>Hye, my name is Nik Nur Zulaikha Suhailie Binti Mohd Zukri. This is my first personal website. I am final year student from course Information Management at UiTM  Campus Rembau. Im from class IM1105B and my matrix number is 2019289632. Wish you enjoy viewing my personal website.  </i></p>
+
+<p></p>
+
+<center>
+<p style="font-size: 10px; font-weight: bold; margin-top: 2px">&copy Copyright 2022 Nik Nur zulaikha suhailie .<br> Last Updated on 17 January 2022. All rights reserved.</p>
+</center>
+</body>
+
+</html>
